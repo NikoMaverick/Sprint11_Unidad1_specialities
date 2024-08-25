@@ -32,7 +32,7 @@ const usersData = [
     { id: 29, name: 'Cynthia', age: 32, specialty: 'ventas' },
     { id: 30, name: 'Derek', age: 30, specialty: 'marketing' },
   ];
-
+// Almacenamos en la variable los usuarios según su departamento
   let marketing=[];
   let developers=[];
   let qas=[];
@@ -40,6 +40,7 @@ const usersData = [
   let productos=[];
   let consulting=[];
   
+  // Se añade al array los que coincidan con el departamento
   usersData.forEach(user => {
    if(user.specialty === "marketing"){
       marketing.push(user);
@@ -76,9 +77,7 @@ const usersData = [
    }
   });
 
-
-  
-
+// Creamos las rutas
  app.get ('/', (req, res) => {
     res.send(
         `<h1>Inicio</h1>
