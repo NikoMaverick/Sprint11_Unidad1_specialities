@@ -33,6 +33,52 @@ const usersData = [
     { id: 30, name: 'Derek', age: 30, specialty: 'marketing' },
   ];
 
+  let marketing=[];
+  let developers=[];
+  let qas=[];
+  let ventas=[];
+  let productos=[];
+  let consulting=[];
+  
+  usersData.forEach(user => {
+   if(user.specialty === "marketing"){
+      marketing.push(user);
+   }
+  });
+
+  usersData.forEach(user => {
+   if(user.specialty === "developers"){
+      developers.push(user);
+   }
+  });
+
+  usersData.forEach(user => {
+   if(user.specialty === "QAs"){
+      qas.push(user);
+   }
+  });
+
+  usersData.forEach(user => {
+   if(user.specialty === "ventas"){
+      ventas.push(user);
+   }
+  });
+
+  usersData.forEach(user => {
+   if(user.specialty === "productos"){
+      productos.push(user);
+   }
+  });
+
+  usersData.forEach(user => {
+   if(user.specialty === "consulting"){
+      consulting.push(user);
+   }
+  });
+
+
+  
+
  app.get ('/', (req, res) => {
     res.send(
         `<h1>Inicio</h1>
@@ -42,8 +88,9 @@ const usersData = [
         <a href="/ventas">Ventas</a>
         <a href="/productos">Productos</a>
         <a href="/consulting">Consulting</a>
-        <a href="/contactanos">Contactanos</a>`      
+        <a href="">Contactanos</a>`      
     )
+    console.log(req.pach);
  })
 
  app.get('/marketing', (req, res) => {
@@ -57,6 +104,7 @@ const usersData = [
         <a href="/consulting">Consulting</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 
  app.get('/developers', (req, res) => {
@@ -70,6 +118,7 @@ const usersData = [
         <a href="/consulting">Consulting</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 
  app.get('/qas', (req, res) => {
@@ -83,6 +132,7 @@ const usersData = [
         <a href="/consulting">Consulting</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 
  app.get('/ventas', (req, res) => {
@@ -96,6 +146,7 @@ const usersData = [
         <a href="/consulting">Consulting</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 
  app.get('/productos', (req, res) => {
@@ -109,6 +160,7 @@ const usersData = [
         <a href="/consulting">Consulting</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 
  app.get('/consulting', (req, res) => {
@@ -122,6 +174,7 @@ const usersData = [
         <a href="/productos">Productos</a>
         <a href="/contactanos">Contactanos</a>`  
     )
+    console.log(req.pach);
  })
 /* Elimino esta ruta para que me genere error 404.
  app.get('/contactanos', (req, res) => {
@@ -135,10 +188,19 @@ const usersData = [
         <a href="/productos">Productos</a>
         <a href="/consulting">Consulting</a>`  
     )
+        console.log(req.pach);
  })*/
 
  app.use((req, res) => {
-    res.status(404).send('<h2>404</h2><h3>Página encontrada</h3>')
+    res.status(404).send(`<h2>404</h2><h3>Página encontrada, vuelve a Inicio</h3>
+        <a href="/">Inicio</a>
+        <a href="/marketing">Marketing</a>
+        <a href="/developers">Developers</a>
+        <a href="qas">QAs</a>
+        <a href="/ventas">Ventas</a>
+        <a href="/productos">Productos</a>
+        <a href="/consulting">Consulting</a>
+        <a href="/contactanos">Contactanos</a>`)
  })
 
  app.listen(3000, () =>{
